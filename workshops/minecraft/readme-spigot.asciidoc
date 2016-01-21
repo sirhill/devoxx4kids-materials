@@ -16,7 +16,9 @@ toc::[]
 == Download and Install
 
 . **JDK:** Download and install JDK from http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-. **NetBeans:** Download and install NetBeans from https://netbeans.org/downloads/, click the download button below the "`Java SE`" column
+. Download and install any of the following Integrated Development Environment (IDE):
+** **NetBeans** from https://netbeans.org/downloads/. Click the download button below the "`Java SE`" column
+** **IntelliJ** from https://www.jetbrains.com/idea/download/. Click  the download button belowe the "`Community`" column
 . **Spigot:** Download Spigot 1.8 from http://getspigot.org/spigot18/spigot_server.jar
 
 Follow the instructions for Mac or windows as explained below.
@@ -69,7 +71,7 @@ This step is important because it makes sure that your server is working correct
 This plugin will be a simple plugin that will print a message in your server console when it is enabled. The plugin will serve to show you how to make and install a plugin on your server.
 
 [[Using_The_Archetype]]
-=== Creating the Plugin
+=== Creating the Plugin with NetBeans
 
 To make a plugin, we will be using a _Maven archetype_. An archetype is like a cookie cutter, and in this case, it will make all of the essential plugin files for you. NetBeans, which is the tool we are using, has a way to make projects from archetypes. This tool will let you make a plugin with whatever name you want easily so that you can work on the functionality of the plugin rather than the boring task of making all of the files.
 
@@ -111,6 +113,69 @@ First, capitalize the first letter of each word (words are separated by dashes),
 [[NetBeans_Project_Created]]
 .NetBeans after project creation
 image::images/netbeans-project-created.png[]
++
+. The part on the left is your project. The text at the bottom should say "`BUILD SUCCESS`" if your project was created successfully.
+
+Your plugin is now of complete. Now, we will test it out to see if it works.
+
+=== Creating the Plugin with IntelliJ
+
+To make a plugin, we will be using a _Maven archetype_. An archetype is like a cookie cutter, and in this case, it will make all of the essential plugin files for you. NetBeans, which is the tool we are using, has a way to make projects from archetypes. This tool will let you make a plugin with whatever name you want easily so that you can work on the functionality of the plugin rather than the boring task of making all of the files.
+
+. To start off, you will want a folder for all your plugins. In this example, we will be using a folder on the Desktop named "`spigot-workshop`". Usually, the directory for plugin development and the directory for the actual server are separate, and that is what we are doing here.
+. Open up NetBeans. After it loads, you should see a screen like <<IntelliJ_Welcome_Screen>>
++
+[[IntelliJ_Welcome_Screen]]
+.IntelliJ welcome screen
+image::images/intellij-1-welcome.png[]
++
+. In IntelliJ, select "`File`" > "`New`" > "`..Project`". Once you click on that, you should see a window like the one in <<IntelliJ_New_Project>>.
++
+[[NetBeans_New_Project]]
+.NetBeans new project
+image::images/intellij-2-new-project.png[]
++
+. In this window, double-click on the "`Maven`" folder on the column on the left. Check "`Create From Archetype`" and add the archetype as shown in <<IntelliJ_Add_Archetype>>.
++
+[[Intellij_Add_Archetype]]
+.IntelliJ add archetype
+image::images/intellij-3-add-archetype.png[]
++
+. Then click OK and if you scroll down the archetype list, you should see the archetype you've just added "`org.devoxx4kids.spigot.plugins:spigot-template`". Select it.
++
+. If Project JDK is not defined, you will need to click on "`New...`". A dialog like <<IntelliJ_Jdk_Selection>> will open where you will be able to set the installation directory of the JDK.
++
+[[IntelliJ_Jdk_Selection]]
+.IntelliJ jdk selection
+image::images/intellij-4-jdk-selection.png[]
++
+. Once you have selected these options, click on "`Next`".
++
+. In the next window that shows up, set "`GroupId`" with "`org.devoxx4kids.spigot.plugins`" and "`ArtifactId`" with "`first-plugin`". Then click on "`Next`".
++
+. The next window that will show up will look like <<IntelliJ_Project_Properties>>.
++
+[[IntelliJ_Project_Properties]]
+.IntelliJ project properties
+image::images/intellij-5-project-properties.png[]
++
+. Add the following properties using the "`+`" button:
++
+* "`spigot:`" specifies the file path to the directory you made where your spigot server is. This is not the directory where your plugins are stored, but is the one where you put the spigot server file.
+* "`pluginFile:`" specifies the name for your plugin's main file. This name will be created from the project name. First, capitalize the first letter of each word (words are separated by dashes), then remove the dash. For example, `first-plugin` turns into `First-Plugin` (capitalizing), then `FirstPlugin` (remove dashes). Enter this name into this box.
+* "`package:`" specifies what package all of your files will be stored in. The package should be the group ID, a period, and then the project name without the dash. In this example, the group ID is `org.devoxx4kids.spigot.plugins` and the project name is `first-plugin`. The project name without the dashes is `firstplugin`, so the package name should be `org.devoxx4kids.spigot.plugins.firstplugin`.
+* In the box titled "`Additional Creation Properties:`", under the column "`Key`", you will see a line that says `pluginFile`. Click on the text next to it under the column "`Value`", and it should become highlighted. That box will specify
++
+. Once you have changed the values click on "`Next`". Set the properties "`Project Name`" and "`Project Location`" as below:
++
+* "`Project Name:`" is your plugin's name. Since this is your first plugin, it is recommended to call it `first-plugin`.
+* "`Project Location:`" is where your project will be stored. In this box, enter the name of the folder you made for storing all of your plugins. Again, in this example, that folder is `spigot-workshop`, and it is on the Desktop.
++
+. Once you have changed all the two values to match what they should be, click "`Finish`" to create your project. Your screen should now look like <<IntelliJ_Project_Created>>.
++
+[[IntelliJ_Project_Created]]
+.IntelliJ after project creation
+image::images/intellij-6-project-created.png[]
 +
 . The part on the left is your project. The text at the bottom should say "`BUILD SUCCESS`" if your project was created successfully.
 
